@@ -23,20 +23,34 @@ while correct_states == 0:
     for state in states:
 
         if choice == state:
-            print(f"Correct: {choice}")
-            label_x = df[df['state'] == state]['x']
-            print(label_x)
-            # label = turtle.Turtle()
-            # label.penup()
-            # label.hideturtle()
-            # label.goto(x=df["x"], y=df["y"])
-            # state.write(df["state"], align=ALIGNMENT, font=FONT)
-            # correct_states += 1
+            # print(f"Correct: {choice}")
+            label_x = int(df[df['state'] == state]['x'])
+            label_y = int(df[df['state'] == state]['y'])
+            label = turtle.Turtle()
+            label.penup()
+            label.hideturtle()
+            label.goto(label_x, label_y)
+            label.write(state, align=ALIGNMENT, font=FONT)
+            correct_states += 1
 
     #print(f"States: {states}")
 
-# while 0 < correct_states < 50:
-#     answer = screen.textinput(title="")
+while 0 < correct_states < 50:
+    choice = screen.textinput(title=f"{correct_states}/50 Guessed Correctly", prompt="Name a state!").title().strip()
+    for state in states:
+
+        if choice == state:
+            # print(f"Correct: {choice}")
+            label_x = int(df[df['state'] == state]['x'])
+            label_y = int(df[df['state'] == state]['y'])
+            label = turtle.Turtle()
+            label.penup()
+            label.hideturtle()
+            label.goto(label_x, label_y)
+            label.write(state, align=ALIGNMENT, font=FONT)
+            correct_states += 1
+    # print(correct_states)
 
 
 
+screen.exitonclick()
