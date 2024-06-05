@@ -15,7 +15,6 @@ df = pd.read_csv("50_states.csv")
 states = df["state"]
 
 correct_states = 0
-correct_guesses = []
 
 while correct_states < 50:
     if correct_states == 0:
@@ -29,7 +28,6 @@ while correct_states < 50:
             label_y = int(df[df['state'] == state]['y'])
             label = Label(state, label_x, label_y)
             correct_states += 1
-            correct_guesses.append(choice)
 
 
 screen.exitonclick()
