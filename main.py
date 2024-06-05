@@ -25,10 +25,7 @@ while correct_states < 50:
                                   prompt="Name a state!").title().strip()
     # Exit and generate list of states not named - to csv
     if choice == "Exit":
-        missing_states = []
-        for state in states:
-            if state not in correct_guesses:
-                missing_states.append(state)
+        missing_states = [state for state in states if state not in correct_guesses]
         missing_data = pd.DataFrame(missing_states)
         missing_data.to_csv("states_to_learn.csv")
         break
